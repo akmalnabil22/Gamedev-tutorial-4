@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://vpcgqywhega1"]
 
-[ext_resource path="res://Assets/Keanu.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://d0xi3jghkp5hk" path="res://Assets/Keanu.png" id="1"]
+[ext_resource type="Script" uid="uid://dvww5amg716rl" path="res://scenes/Retry.gd" id="2_okh34"]
 
-[node name="WinScreen" type="Sprite2D"]
-position = Vector2( 512.329, 294.151 )
-texture = ExtResource( 1 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulig0"]
+size = Vector2(1322, 719)
+
+[node name="Node2D" type="Node2D" unique_id=806135694]
+
+[node name="WinScreen" type="Sprite2D" parent="." unique_id=1347378919]
+position = Vector2(512.329, 294.151)
+texture = ExtResource("1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1491762991]
+script = ExtResource("2_okh34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2070058489]
+position = Vector2(651, 349.5)
+shape = SubResource("RectangleShape2D_ulig0")
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

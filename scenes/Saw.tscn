@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvxpuso7gtxka"]
+
+[ext_resource type="Script" uid="uid://cvthqcl3krrh7" path="res://scenes/Fish.gd" id="1_u8doi"]
+[ext_resource type="Texture2D" uid="uid://dvv3mspleuvvy" path="res://assets/kenney_platformerpack/PNG/Enemies/saw.png" id="2_iru2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u62x5"]
+radius = 42.107006
+
+[node name="Node2D" type="RigidBody2D" unique_id=343458001]
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_u8doi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1944877948]
+texture = ExtResource("2_iru2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835545554]
+shape = SubResource("CircleShape2D_u62x5")
+
+[connection signal="body_entered" from="." to="." method="_on_FallArea_body_entered"]
